@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>612ab44d-1972-4eb5-9d0f-b24a9b5978a7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FinalProject.py</StartupFile>
+    <StartupFile>TomeRater.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FinalProject.py" />
+    <Compile Include="populate.py" />
+    <Compile Include="TomeRater.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
