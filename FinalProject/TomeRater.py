@@ -66,6 +66,12 @@ class Book:
             self.ratings.append(_rating)
         else:
             print("Invalid Rating")
+
+    def getAvgRating(self):
+        total = 0        
+        for value in self.ratings:
+            total += value
+        return total / len(self.ratings)
         
     
 class Fiction(Book):
@@ -99,6 +105,25 @@ class TomeRater:
     def __init__(self):
         self.users = {}
         self.books = {}
+
+    def __repr__(self):
+        userList = ""
+        bookList = ""
+        for user in self.users.values():
+            userList += '\t' + str(user) + '\n'
+        for book in self.books:
+            bookList += '\t' + str(book) + '\n'
+        
+        string = 'This TomeRater have these users:\n{u} \nAnd holds this selection of books:\n{b}'.format(u=userList, b=str(bookList))
+        print()
+        return string
+
+    def __eq__(self, _other):
+        if self.users == _other.users:
+            return 'The two TomeRaters have the same users'
+        else:
+            return 'The two TomeRaters DOES NOT have the same users'
+
 
     def createBook(self, _title, _isbn):
         return Book(_title, _isbn)
@@ -146,6 +171,25 @@ class TomeRater:
         for user in self.users.values():
             print(user)
         print()
+
+    def mostReadBook(self):
+        return max(self.books, key=self.books.get)
+
+    def highestRatedBook(self):
+        title = " "
+        largestAverage = 0.0
+        dictAverageRating = {}
+        for book in self.books.keys():
+            averageRating = book.getAvgRating()
+            dictAverageRating.update({book: averageRating})
+        for key, value in dictAverageRating.items():
+            if value > largestAverage:
+                title = key
+                largestAverage = value
+        return "{t} with an avg. rating of {r}".format(t=title, r=largestAverage)
+
+    def mostPositiveUser(self):
+        pass
 
 #test book functions
 #test = Book('test bog', 123)

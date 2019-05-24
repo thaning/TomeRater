@@ -35,10 +35,17 @@ Tome_Rater.addBookToUser(novel3, "david@computation.org", 4)
 Tome_Rater.printCatalog()
 Tome_Rater.printUsers()
 
-# print("Most positive user:")
-# print(Tome_Rater.most_positive_user())
-# print("Highest rated book:")
-# print(Tome_Rater.highest_rated_book())
-# print("Most read book:")
-# print(Tome_Rater.most_read_book())
+print("Most positive user:")
+print(Tome_Rater.mostPositiveUser())
+print("Highest rated book:")
+print(Tome_Rater.highestRatedBook())
+print("Most read book:")
+print(Tome_Rater.mostReadBook())
 
+
+# Compare TomeRaters
+Tome_Rater2 = TomeRater()
+print(Tome_Rater == Tome_Rater2)
+
+# Check TomeRater representation
+print(Tome_Rater)
