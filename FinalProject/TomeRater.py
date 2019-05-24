@@ -48,6 +48,9 @@ class Book:
     def __hash__(self):
         return hash((self.title, self.isbn))
 
+    def __repr__(self):
+        return '{t}'.format(t=self.title) 
+
     def getTitle(self):
         return self.title
 
@@ -60,7 +63,7 @@ class Book:
 
     def addRating(self, _rating):
         if _rating >= 0 and _rating <= 4:
-            self.ratings += _rating
+            self.ratings.append(_rating)
         else:
             print("Invalid Rating")
         
@@ -107,10 +110,6 @@ class TomeRater:
         return NonFiction(_title, _isbn, _subject, _level)
 
     def addBookToUser(self, _book, _email, _rating=None):
-        for each in self.users.keys():
-            print('test')
-            print(each)
-
         if _email not in self.users.keys():
             print('No user with email {e}!'.format(e=_email))
         else:
@@ -128,8 +127,9 @@ class TomeRater:
                 self.books[_book] += 1                
        
     def addUser(self, _name, _email, _userBooks=None):
+        newUser = User(_name, _email)
         if _email not in self.users.keys():
-            self.users[_name] = _email
+            self.users.update({_email: newUser})
             print('User {u} created'.format(u=_name))
             if bool(_userBooks):
                 for each in _userBooks:

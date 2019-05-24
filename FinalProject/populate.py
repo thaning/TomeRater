@@ -17,7 +17,7 @@ Tome_Rater.addUser("David Marr", "david@computation.org")
 
 #Add a user with three books already read:
 Tome_Rater.addUser("Marvin Minsky", "marvin@mit.edu", _userBooks=[book1, novel1, nonfiction1])
-
+print()
 
 #Add books to a user one by one, with ratings:
 Tome_Rater.addBookToUser(book1, "alan@turing.com", 1)
